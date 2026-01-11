@@ -1,4 +1,4 @@
-import { ClobClient } from "@polymarket/clob-client";
+import { ClobClient, AssetType } from "@polymarket/clob-client";
 import { Wallet } from "ethers";
 import { env } from "../env";
 
@@ -25,7 +25,7 @@ export async function getBalance(): Promise<WalletInfo> {
     });
 
     // Получаем баланс и allowance для USDC (COLLATERAL)
-    const balanceResponse = await client.getBalanceAllowance({ asset_type: "COLLATERAL" });
+    const balanceResponse = await client.getBalanceAllowance({ asset_type: "COLLATERAL" as AssetType });
 
     return {
       success: true,
